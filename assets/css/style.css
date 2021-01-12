@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color:  rgb(22, 22, 22);
+}
+
+#navbar{
+    height: 70px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+
+#navbar img{
+    height: 50px;
+}
+
+button{
+    width: 20px;
+    height: 20px;
+}
+#films{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#films .film{
+    margin: 10px;
+    flex-basis: calc(100% / 6);
+    background-color: rgb(5, 5, 5);
+    padding: 10px;
+    color: white;
+}
+
+.poster{
+    width: 100%;
+}

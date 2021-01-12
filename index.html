@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        
+
+        <div id="root">
+            <nav id="navbar">
+                <img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="">
+                <input type="text" v-model="film">
+                <button @click="searchFilms"></button>
+            </nav>
+
+            <div id="films">
+                <div class="film" v-for = "film in films">
+                    <img class="poster" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ film.poster_path" alt="">
+                    <h2 v-text = "film.title"></h2>
+                    <h3 v-text = "film.original_title"></h3>
+                    <h4 v-text = "film.original_language"></h4>
+                    <h5 v-text = "film.vote_average"></h5>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+        <script src="./assets/js/main.js"></script>
+    </body>
+</html>
