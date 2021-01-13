@@ -19,36 +19,95 @@
             <div id="films">
 
                 <div class="film" v-for = "film in films">
-                    <img class="poster" v-if="film.poster_path != null" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ film.poster_path" alt="">
-                    <!-- /poster -->
-                    <h2 v-text = "film.title"></h2>
-                    <h3 v-text = "film.original_title"></h3>
-                    <!-- titoli -->
-                    <img :src="'https://www.countryflags.io/'+ film.original_language + '/flat/64.png'">
-                    <!-- /bandiera -->
-                    <div class="stelle">
-                        <i class="fas fa-star" v-for= "n in film.vote_average"></i>
-                        <i class="far fa-star" v-for = "n in (5 - film.vote_average)" ></i>
+                    
+                    <div  v-if="film.poster_path != null">
+                        <img class="poster" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ film.poster_path" alt="">
+                        <!-- /poster -->
+    
+                        <div class="scheda d-none">
+    
+                            <div><strong>Titolo:</strong> {{film.title}}</div>
+                            <div><strong>Titolo originale:</strong> {{film.original_title}}</div>
+                            <!-- titoli -->
+                            <img :src="'https://www.countryflags.io/'+ film.original_language + '/flat/64.png'">
+                            <!-- /bandiera -->
+                            <div class="stelle">
+                                <strong style="color: white;">Voto:</strong>
+                                <i class="fas fa-star" v-for= "n in film.vote_average"></i>
+                                <i class="far fa-star" v-for = "n in (5 - film.vote_average)" ></i>
+                            </div>
+                            <!-- /stelle -->
+                            <div class="overview"><strong>Overview:</strong> {{film.overview}}</div>
+                        </div>
+                        <!-- /scheda -->
+
                     </div>
-                    <!-- /stelle -->
+
+                    <div v-else>
+                        <div class="scheda">
+                            <div><strong>Titolo:</strong> {{film.title}}</div>
+                            <div><strong>Titolo originale:</strong> {{film.original_title}}</div>
+                            <!-- titoli -->
+                            <img :src="'https://www.countryflags.io/'+ film.original_language + '/flat/64.png'">
+                            <!-- /bandiera -->
+                            <div class="stelle">
+                                <strong style="color: white;">Voto:</strong>
+                                <i class="fas fa-star" v-for= "n in film.vote_average"></i>
+                                <i class="far fa-star" v-for = "n in (5 - film.vote_average)" ></i>
+                            </div>
+                            <!-- /stelle -->
+                            <div class="overview"><strong>Overview:</strong> {{film.overview}}</div>
+                        </div>
+                        <!-- /scheda -->
+                    </div>
                 </div>
                 <!-- /films -->
 
                 <div class="film" v-for = "serie in series">
-                    <img class="poster" v-if="serie.poster_path != null" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ serie.poster_path" alt="">
-                    <!-- /poster -->                    
-                    <h2 v-text = "serie.name"></h2>
-                    <h3 v-text = "serie.original_name"></h3>
-                    <!-- titoli -->
-                    <img :src="'https://www.countryflags.io/'+ serie.original_language + '/flat/64.png'">
-                    <!-- /bandiera -->
-                    <div class="stelle">
-                        <i class="fas fa-star" v-for= "n in serie.vote_average"></i>
-                        <i class="far fa-star" v-for = "n in (5 - serie.vote_average)" ></i>
+                    
+                    <div  v-if="serie.poster_path != null">
+                        <img class="poster" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ serie.poster_path" alt="">
+                        <!-- /poster -->
+    
+                        <div class="scheda d-none">
+    
+                            <div><strong>Titolo:</strong> {{serie.name}}</div>
+                            <div><strong>Titolo originale:</strong> {{serie.original_name}}</div>
+                            <!-- titoli -->
+                            <img :src="'https://www.countryflags.io/'+ serie.original_language + '/flat/64.png'">
+                            <!-- /bandiera -->
+                            <div class="stelle">
+                                <strong style="color: white;">Voto:</strong>
+                                <i class="fas fa-star" v-for= "n in serie.vote_average"></i>
+                                <i class="far fa-star" v-for = "n in (5 - serie.vote_average)" ></i>
+                            </div>
+                            <!-- /stelle -->
+                            <div class="overview"><strong>Overview:</strong> {{serie.overview}}</div>
+                        </div>
+                        <!-- /scheda -->
+
                     </div>
-                    <!-- /stelle -->
+
+                    <div v-else>
+                        <div class="scheda">
+                            <div><strong>Titolo:</strong> {{serie.name}}</div>
+                            <div><strong>Titolo originale:</strong> {{serie.original_name}}</div>
+                            <!-- titoli -->
+                            <img :src="'https://www.countryflags.io/'+ serie.original_language + '/flat/64.png'">
+                            <!-- /bandiera -->
+                            <div class="stelle">
+                                <strong style="color: white;">Voto:</strong>
+                                <i class="fas fa-star" v-for= "n in serie.vote_average"></i>
+                                <i class="far fa-star" v-for = "n in (5 - serie.vote_average)" ></i>
+                            </div>
+                            <!-- /stelle -->
+                            <div class="overview"><strong>Overview:</strong> {{serie.overview}}</div>
+                        </div>
+                        <!-- /scheda -->
+                    </div>
                 </div>
                 <!-- /series -->
+
             </div>
         </div>
 

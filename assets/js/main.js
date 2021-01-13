@@ -1,7 +1,7 @@
 let app = new Vue({
     el: '#root',
     data:{
-        film:"pa",
+        film:"",
         films:[],
         input: document.getElementById("input"),
         series:[],
@@ -19,6 +19,9 @@ let app = new Vue({
                         }else if(element.original_language == "ja"){
                             element.original_language = "jp";
                         };
+                        if (element.overview.length >= 100) {
+                            element.overview = element.overview.slice(0, 100) + "...";
+                        }
                     });
                     axios.get(`https://api.themoviedb.org/3/search/tv/?api_key=447ce90d24c1fcb65e78b03135e2905b&query=${this.film}`)
                     .then(response =>{

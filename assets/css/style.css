@@ -10,6 +10,10 @@ body{
     background-color:  rgb(22, 22, 22);
 }
 
+.d-none{
+    opacity: 0;;
+}
+
 #navbar{
     height: 70px;
     padding: 0 40px;
@@ -35,13 +39,34 @@ body{
     background-color: rgb(5, 5, 5);
     padding: 10px;
     color: white;
+    position: relative;
 }
 
 .poster{
     width: 100%;
 }
 
+.flag{
+    width: 70px;
+    margin: 10px 0;
+}
+
 .stelle{
     display: flex;
     color: yellow;
+}
+
+.scheda{
+    padding: 10px 0;
+    background-color:  rgb(5, 5, 5);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.film:hover .scheda{
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.2s ;
 }
