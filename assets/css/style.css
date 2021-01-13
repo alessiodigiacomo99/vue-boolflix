@@ -12,7 +12,7 @@ body{
 
 #navbar{
     height: 70px;
-    padding: 0 20px;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,10 +23,6 @@ body{
     height: 50px;
 }
 
-button{
-    width: 20px;
-    height: 20px;
-}
 #films{
     display: flex;
     flex-wrap: wrap;
@@ -43,4 +39,9 @@ button{
 
 .poster{
     width: 100%;
+}
+
+.stelle{
+    display: flex;
+    color: yellow;
 }

@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
@@ -12,19 +13,42 @@
         <div id="root">
             <nav id="navbar">
                 <img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="">
-                <input type="text" v-model="film">
-                <button @click="searchFilms"></button>
+                <input type="text" v-model="film" v-on:input="searchFilms" id="input">
             </nav>
-
+            <!-- /navbar -->
             <div id="films">
+
                 <div class="film" v-for = "film in films">
-                    <img class="poster" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ film.poster_path" alt="">
+                    <img class="poster" v-if="film.poster_path != null" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ film.poster_path" alt="">
+                    <!-- /poster -->
                     <h2 v-text = "film.title"></h2>
                     <h3 v-text = "film.original_title"></h3>
-                    <h4 v-text = "film.original_language"></h4>
-                    <h5 v-text = "film.vote_average"></h5>
+                    <!-- titoli -->
+                    <img :src="'https://www.countryflags.io/'+ film.original_language + '/flat/64.png'">
+                    <!-- /bandiera -->
+                    <div class="stelle">
+                        <i class="fas fa-star" v-for= "n in film.vote_average"></i>
+                        <i class="far fa-star" v-for = "n in (5 - film.vote_average)" ></i>
+                    </div>
+                    <!-- /stelle -->
                 </div>
+                <!-- /films -->
 
+                <div class="film" v-for = "serie in series">
+                    <img class="poster" v-if="serie.poster_path != null" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ serie.poster_path" alt="">
+                    <!-- /poster -->                    
+                    <h2 v-text = "serie.name"></h2>
+                    <h3 v-text = "serie.original_name"></h3>
+                    <!-- titoli -->
+                    <img :src="'https://www.countryflags.io/'+ serie.original_language + '/flat/64.png'">
+                    <!-- /bandiera -->
+                    <div class="stelle">
+                        <i class="fas fa-star" v-for= "n in serie.vote_average"></i>
+                        <i class="far fa-star" v-for = "n in (5 - serie.vote_average)" ></i>
+                    </div>
+                    <!-- /stelle -->
+                </div>
+                <!-- /series -->
             </div>
         </div>
 
