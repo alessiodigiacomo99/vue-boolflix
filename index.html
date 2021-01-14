@@ -13,102 +13,160 @@
         <div id="root">
             <nav id="navbar">
                 <img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="">
-                <input type="text" v-model="film" v-on:input="searchFilms" id="input">
+                <input type="text" v-model="film" v-on:input="search" id="input">
             </nav>
             <!-- /navbar -->
+
             <div id="films">
 
                 <div class="film" v-for = "film in films">
                     
-                    <div  v-if="film.poster_path != null">
+                    <div v-if="film.poster_path != null">
+
                         <img class="poster" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ film.poster_path" alt="">
                         <!-- /poster -->
     
                         <div class="scheda d-none">
     
                             <div><strong>Titolo:</strong> {{film.title}}</div>
-                            <div><strong>Titolo originale:</strong> {{film.original_title}}</div>
+                            <div v-if = "film.title != film.original_title">
+                                <strong>Titolo originale:</strong> {{film.original_title}}
+                            </div>
                             <!-- titoli -->
+
                             <img :src="'https://www.countryflags.io/'+ film.original_language + '/flat/64.png'">
                             <!-- /bandiera -->
+
                             <div class="stelle">
                                 <strong style="color: white;">Voto:</strong>
                                 <i class="fas fa-star" v-for= "n in film.vote_average"></i>
                                 <i class="far fa-star" v-for = "n in (5 - film.vote_average)" ></i>
                             </div>
                             <!-- /stelle -->
-                            <div class="overview"><strong>Overview:</strong> {{film.overview}}</div>
+
+                            <div class="overview">
+                                <strong>Overview:</strong> {{film.overview}}
+                            </div>
+                            <!-- /overview -->
+
                         </div>
                         <!-- /scheda -->
 
                     </div>
+                    <!-- /film con poster -->
 
-                    <div v-else>
+                    <div v-else class="min-height">
+
                         <div class="scheda">
-                            <div><strong>Titolo:</strong> {{film.title}}</div>
-                            <div><strong>Titolo originale:</strong> {{film.original_title}}</div>
+                            
+                            <div>
+                                <strong>Titolo:</strong> {{film.title}}
+                            </div>
+                            <div v-if = "film.title != film.original_title">
+                                <strong>Titolo originale:</strong> {{film.original_title}}
+                            </div>
                             <!-- titoli -->
+
                             <img :src="'https://www.countryflags.io/'+ film.original_language + '/flat/64.png'">
                             <!-- /bandiera -->
+
                             <div class="stelle">
                                 <strong style="color: white;">Voto:</strong>
                                 <i class="fas fa-star" v-for= "n in film.vote_average"></i>
                                 <i class="far fa-star" v-for = "n in (5 - film.vote_average)" ></i>
                             </div>
                             <!-- /stelle -->
-                            <div class="overview"><strong>Overview:</strong> {{film.overview}}</div>
+
+                            <div class="overview">
+                                <strong>Overview:</strong> {{film.overview}}
+                            </div>
+                            <!-- /overview -->
+
                         </div>
                         <!-- /scheda -->
                     </div>
+                    <!-- /film senza poster -->
+
                 </div>
                 <!-- /films -->
 
                 <div class="film" v-for = "serie in series">
                     
                     <div  v-if="serie.poster_path != null">
+
                         <img class="poster" :src="'https:&#47;&#47;image.tmdb.org&#47;t&#47;p&#47;w500'+ serie.poster_path" alt="">
                         <!-- /poster -->
     
                         <div class="scheda d-none">
     
-                            <div><strong>Titolo:</strong> {{serie.name}}</div>
-                            <div><strong>Titolo originale:</strong> {{serie.original_name}}</div>
+                            <div>
+                                <strong>Titolo:</strong> {{serie.name}}
+                            </div>
+                            <div v-if = "film.title != film.original_title">
+                                <strong>Titolo originale:</strong> {{serie.original_name}}
+                            </div>
                             <!-- titoli -->
+
                             <img :src="'https://www.countryflags.io/'+ serie.original_language + '/flat/64.png'">
                             <!-- /bandiera -->
+
                             <div class="stelle">
                                 <strong style="color: white;">Voto:</strong>
                                 <i class="fas fa-star" v-for= "n in serie.vote_average"></i>
                                 <i class="far fa-star" v-for = "n in (5 - serie.vote_average)" ></i>
                             </div>
                             <!-- /stelle -->
-                            <div class="overview"><strong>Overview:</strong> {{serie.overview}}</div>
+
+                            <div class="overview">
+                                <strong>Overview:</strong> {{serie.overview}}
+                            </div>
+                            <!-- /overview -->
+
                         </div>
                         <!-- /scheda -->
 
                     </div>
+                    <!-- /serie con poster -->
 
-                    <div v-else>
+                    <div v-else class="min-height">
+
                         <div class="scheda">
-                            <div><strong>Titolo:</strong> {{serie.name}}</div>
-                            <div><strong>Titolo originale:</strong> {{serie.original_name}}</div>
+
+                            <div>
+                                <strong>Titolo:</strong> {{serie.name}}
+                            </div>
+                            <div v-if = "film.title != film.original_title">
+                                <strong>Titolo originale:</strong> {{serie.original_name}
+                            }</div>
                             <!-- titoli -->
+
                             <img :src="'https://www.countryflags.io/'+ serie.original_language + '/flat/64.png'">
                             <!-- /bandiera -->
+
                             <div class="stelle">
                                 <strong style="color: white;">Voto:</strong>
                                 <i class="fas fa-star" v-for= "n in serie.vote_average"></i>
                                 <i class="far fa-star" v-for = "n in (5 - serie.vote_average)" ></i>
                             </div>
                             <!-- /stelle -->
-                            <div class="overview"><strong>Overview:</strong> {{serie.overview}}</div>
+
+                            <div class="overview">
+                                <strong>Overview:</strong> {{serie.overview}}
+                            </div>
+                            <!-- /overview -->
+
                         </div>
                         <!-- /scheda -->
+                        
                     </div>
+                    <!-- /series senza poster -->
+
                 </div>
                 <!-- /series -->
 
             </div>
+            <!-- /films and series -->
+
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
