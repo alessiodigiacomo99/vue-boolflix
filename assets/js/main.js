@@ -1,7 +1,7 @@
 let app = new Vue({
     el: '#root',
     data:{
-        film:"scrubs",
+        film:"pa",
         films:[],
         input: document.getElementById("input"),
         series:[],
@@ -21,17 +21,23 @@ let app = new Vue({
         cast(tipo, elemento){
             axios.get(`https://api.themoviedb.org/3/${tipo}/${elemento.id}/credits?api_key=447ce90d24c1fcb65e78b03135e2905b`)
             .then(results =>{
-                let cast = results.data.cast;
-                cast = cast.slice(0, 5);
-                elemento.cast = cast;
+                elemento.cast = results.data.cast.slice(0, 5);
+                let cast = [];
+                for (let i = 0; i < elemento.cast.length; i++) {
+                    cast.push(results.data.cast[i].name)
+                }
+                this.$set(elemento, 'casts', cast);
             })
         },
         genere(tipo, elemento){
             axios.get(`https://api.themoviedb.org/3/${tipo}/${elemento.id}?api_key=447ce90d24c1fcb65e78b03135e2905b`)
             .then(results =>{
-                let generi = results.data.genres;
-                elemento.genres = generi;
-                console.log(elemento.genres);
+                elemento.genres = results.data.genres;
+                let genres = [];
+                for (let i = 0; i < elemento.genres.length; i++) {
+                    genres.push(results.data.genres[i].name)
+                }
+                this.$set(elemento, 'generi', genres);
             })
         },
         searchFilms(){
@@ -67,5 +73,6 @@ let app = new Vue({
     },
     mounted(){
         this.search();
+        
     }
 })

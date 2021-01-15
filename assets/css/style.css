@@ -75,6 +75,10 @@ body{
     height: 100%;
 }
 
+.cast, .genere{
+    font-size: 0.8rem;
+}
+
 .film:hover .scheda{
     cursor: pointer;
     opacity: 1;

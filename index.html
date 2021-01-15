@@ -52,16 +52,16 @@
                             <span>
                                 <strong>Cast:</strong>
                             </span>
-                            <div v-for = "attore in film.cast"  class="cast">
-                                {{attore.original_name}}
+                            <div v-for = "attore in film.casts"  class="cast">
+                                {{attore}}
                             </div>
                             <!-- /cast -->
 
                             <div>
                                 <strong>Generi:</strong>
                             </div>
-                            <div v-for = "genere in film.genres" class="genere">
-                                {{genere.name}}
+                            <div v-for = "genere in film.generi" class="genere">
+                                {{genere}}
                             </div>
                             <!-- /generi -->
 
@@ -102,16 +102,16 @@
                             <span>
                                 <strong>Cast:</strong>
                             </span>
-                            <div v-for = "attore in film.cast"  class="cast">
-                                {{attore.original_name}}
+                            <div v-for = "attore in film.casts"  class="cast">
+                                {{attore}}
                             </div>
                             <!-- /cast -->
 
                             <div>
                                 <strong>Generi:</strong>
                             </div>
-                            <div v-for = "genere in film.genres" class="genere">
-                                {{genere.name}}
+                            <div v-for = "genere in film.generi" class="genere">
+                                {{genere}}
                             </div>
                             <!-- /generi -->
 
@@ -158,16 +158,16 @@
                             <span>
                                 <strong>Cast:</strong>
                             </span>
-                            <div v-for = "attore in serie.cast"  class="cast">
-                                {{attore.original_name}}
+                            <div v-for = "attore in serie.casts"  class="cast">
+                                {{attore}}
                             </div>
                             <!-- /cast -->
 
                             <div>
                                 <strong>Generi:</strong>
                             </div>
-                            <div v-for = "genere in serie.genres" class="genere">
-                                {{genere.name}}
+                            <div v-for = "genere in serie.generi" class="genere">
+                                {{genere}}
                             </div>
                             <!-- /generi -->
 
@@ -207,16 +207,16 @@
                             <span>
                                 <strong>Cast:</strong>
                             </span>
-                            <div v-for = "attore in serie.cast"  class="cast">
-                                {{attore.original_name}}
+                            <div v-for = "attore in serie.casts"  class="cast">
+                                {{attore}}
                             </div>
                             <!-- /cast -->
 
                             <div>
                                 <strong>Generi:</strong>
                             </div>
-                            <div v-for = "genere in serie.genres" v-if= "genere.length != 0"class="genere">
-                                {{genere.name}}
+                            <div v-for = "genere in serie.generi"class="genere">
+                                {{genere}}
                             </div>
                             <!-- /generi -->
 
