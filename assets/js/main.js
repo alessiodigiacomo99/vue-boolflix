@@ -1,7 +1,7 @@
 let app = new Vue({
     el: '#root',
     data:{
-        film:"pa",
+        film:"",
         films:[],
         input: document.getElementById("input"),
         series:[],
@@ -51,6 +51,8 @@ let app = new Vue({
                         this.genere("movie", element);
                     })
                 })
+            }else if(this.film.length == 0){
+                this.films.splice(0);
             }
         },
         searchSeries(){
@@ -64,6 +66,8 @@ let app = new Vue({
                         this.genere("tv", element);
                     })
                 })
+            }else if(this.film.length == 0){
+                this.series.splice(0);
             }
         },
         search(){
